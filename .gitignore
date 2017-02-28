@@ -2,4 +2,4 @@
 /.idea
 /node_modules
 /public/app.css
-/public/app.js
+/public/app.es6

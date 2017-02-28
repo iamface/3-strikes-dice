@@ -9,7 +9,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     // Include entry file(s)
-    entry: ['./app/app.js'],
+    entry: ['./app/app.es6'],
 
     // Output file
     output: {
