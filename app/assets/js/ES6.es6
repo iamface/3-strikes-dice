@@ -1,1 +1,5 @@
-console.log('es6 added');
+module.exports = {
+    test: function() {
+        console.log('test');
+    }
+};

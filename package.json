@@ -1,17 +1,17 @@
 {
   "name": "webpack-app",
   "version": "1.0.0",
-  "description": "Webpack App",
+  "description": "3 Strikes Dice",
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --inline",
     "build": "webpack --config webpack-production.config.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jared Ivory <iamface@jaredivory.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/iamface/3-strikes-dice"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",

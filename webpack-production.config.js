@@ -18,13 +18,13 @@ const stripLoader = {
 };
 
 // Babili plugin
-let babili = new BabiliPlugin();
+const babili = new BabiliPlugin();
 
 // Include stripped files
 devConfig.module.loaders.push(stripLoader);
 
 // Use production .env.production
-let env = new Dotenv({
+const env = new Dotenv({
     path: '.env.production'
 });
 devConfig.plugins.pop();

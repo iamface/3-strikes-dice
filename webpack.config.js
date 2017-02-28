@@ -1,5 +1,5 @@
 // Used for external CSS file
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Used to call custom shell commands before/after build
 const WebpackShellPlugin = require('webpack-shell-plugin');
@@ -9,7 +9,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     // Include entry file(s)
-    entry: ['./app/another_entry.js', './app/app.js'],
+    entry: ['./app/app.js'],
 
     // Output file
     output: {
