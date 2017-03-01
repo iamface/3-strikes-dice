@@ -13,26 +13,17 @@ module.exports = {
 
     // Output file
     output: {
-        filename: './public/app.js'
+        filename: 'app.js',
+        path: __dirname + '/public'
     },
     module: {
-        // Preloaders
-        preLoaders: [
-            // JSHint
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'jshint-loader'
-            }
-        ],
-
         // Loaders
-        loaders: [
+        rules: [
             // SCSS
             {
                 test: /\.scss$/,
                 //loaders: ['style', 'css', 'sass'] // inline
-                loader: ExtractTextPlugin.extract('css!sass') // external file
+                loader: ExtractTextPlugin.extract('css-loader!sass-loader') // external file
             },
             // ES6 files
             {
@@ -42,14 +33,18 @@ module.exports = {
                 query: {
                     presets: ['es2015']
                 }
+            },
+            // JSHint
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'jshint-loader'
             }
         ]
     },
     plugins: [
         // Export CSS to external file
-        new ExtractTextPlugin('./public/app.css', {
-            allChunks: true
-        }),
+        new ExtractTextPlugin({ filename: 'app.css', disable: false, allChunks: true }),
 
         // Execute commands before and after build
         new WebpackShellPlugin({
@@ -63,7 +58,7 @@ module.exports = {
     ],
     // Resolve file extensions
     resolve: {
-        extensions: ['', '.js', '.es6']
+        extensions: ['.js', '.es6']
     },
     // Watch dev server
     watch: true
