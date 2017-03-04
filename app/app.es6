@@ -3,6 +3,46 @@
 // Include CSS to be compiled
 require('./assets/css/app.scss');
 
+import Players from './assets/js/Players';
+
+/*************************************/
+/* Events */
+
+$(document).ready( ()=> {
+    // New Game clicked
+    $('#new_game_btn').click( ()=> createNewGame() );
+
+    // Number of players chosen
+    $('.choose-num-player').click( e => {
+        $('#choose_num_players').hide();
+
+        players = new Players($(e.target).text());
+    });
+
+    // Show player name input
+    $(document).on('showNewPlayerInput', (e, player) => {
+        $('#player_name_input').val('').attr('placeholder', 'Player '+ player.playerNum);
+        $('#player_name_div').show();
+    });
+
+    // Player name saved
+    $('#player_name_save').click( ()=> {players.createPlayer($('#player_name_input').val())});
+
+    // Player creation complete
+    $(document).on('allPlayersCreated', ()=> $('#player_name_div').hide() );
+});
+
+/*************************************/
+
+let players;
+
+function createNewGame() {
+    $('#new_game_btn').hide();
+
+    $('#choose_num_players').show();
+    window.console.log('new game initialized..');
+}
+
 /*************************************/
 
 // Return .env variable
