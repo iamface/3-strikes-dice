@@ -53,6 +53,8 @@ function createDice() {
     dice = new Dice();
 
     window.console.log(dice);
+    window.console.log(dice.dice[0].sides);
+    window.console.log(dice.dice[0].roll());
 }
 
 /*************************************/
