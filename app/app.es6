@@ -59,9 +59,4 @@ function createDice() {
 
 /*************************************/
 
-// Return .env variable
-export function env(v) {
-    return process.env[v];
-}
-
-console.log(env('MY_VARIABLE'));
+console.log(process.env.MY_VARIABLE);
