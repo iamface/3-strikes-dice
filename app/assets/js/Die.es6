@@ -16,6 +16,7 @@ export default class Die {
 
     constructor(type) {
         this._sides = types[type];
+        this._type  = type;
     }
 
     get sides() {

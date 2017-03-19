@@ -31,10 +31,18 @@ $(document).ready( ()=> {
 
     // Player creation complete
     $(document).on('allPlayersCreated', ()=> {
+        // Remove events after all players have been created
+        $(document).off('allPlayersCreated');
+        $(document).on('showNewPlayerInput');
+
         $('#player_name_div').hide();
 
         createDice();
-    } );
+        startGame();
+    });
+
+    // Event from Player
+    $('#take_turn').click(takeTurn);
 });
 
 /*************************************/
@@ -51,10 +59,31 @@ function createNewGame() {
 
 function createDice() {
     dice = new Dice();
+}
 
-    window.console.log(dice);
-    window.console.log(dice.dice[0].sides);
-    window.console.log(dice.dice[0].roll());
+function startGame() {
+    $('#player_name').text(players.whosTurn.name);
+    $('#player_turn').show();
+}
+
+function takeTurn() {
+    let currentPlayer = players.whosTurn;
+    $(document).on('takeTurn', function() {
+        $(document).off('takeTurn');
+        window.console.log(dice.remainingDice);
+
+        if (dice.remainingDice.length > 0) {
+            let chosenDice = dice.pickDice();
+            window.console.log(chosenDice);
+
+            for (let i = 0; i < chosenDice.length; i++) {
+                window.console.log(chosenDice[i].roll());
+            }
+        }
+    });
+    window.console.log(currentPlayer);
+
+    currentPlayer.takeTurn();
 }
 
 /*************************************/

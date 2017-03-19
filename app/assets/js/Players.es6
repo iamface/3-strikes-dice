@@ -5,6 +5,7 @@ export default class Players {
     constructor(num) {
         this._numPlayers = num;
         this._players = [];
+        this._whosTurn = 0;
 
         Players._createPlayers();
     }
@@ -48,5 +49,9 @@ export default class Players {
      */
     get players() {
         return this._players;
+    }
+
+    get whosTurn() {
+        return this._players[this._whosTurn];
     }
 }
