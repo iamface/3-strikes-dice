@@ -11,7 +11,7 @@ import Dice from './assets/js/Dice';
 
 $(document).ready( ()=> {
     // New Game clicked
-    $('#new_game_btn').click( ()=> createNewGame() );
+    $('#new_game_btn').click(createNewGame);
 
     // Number of players chosen
     $('.choose-num-player').click( e => {
@@ -62,12 +62,12 @@ function createDice() {
 }
 
 function startGame() {
-    $('#player_name').text(players.whosTurn.name);
+    $('#player_name').text(players.whoseTurn.name);
     $('#player_turn').show();
 }
 
 function takeTurn() {
-    let currentPlayer = players.whosTurn;
+    let currentPlayer = players.whoseTurn;
     $(document).on('takeTurn', function() {
         $(document).off('takeTurn');
         window.console.log(dice.remainingDice);

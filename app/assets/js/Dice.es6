@@ -1,5 +1,11 @@
 import Die from './Die';
 
+/**
+ * The current pool of dice
+ *
+ * @type {Array}
+ */
+// TODO build different difficulty levels - currently only 'easy'
 const difficulty = [
     'easy', 'easy', 'easy', 'easy', 'easy', 'easy',
     'med', 'med', 'med',
@@ -8,6 +14,9 @@ const difficulty = [
 
 export default class Dice {
 
+    /**
+     * Dice
+     */
     constructor() {
         this._dice = [];
 
@@ -33,10 +42,20 @@ export default class Dice {
         return chosenDice;
     }
 
+    /**
+     * Returns the dice
+     *
+     * @returns {Array}
+     */
     get dice() {
         return this._dice;
     }
 
+    /**
+     * Returns the remaining dice pool
+     *
+     * @returns {Array}
+     */
     get remainingDice() {
         return this._remainingDice;
     }

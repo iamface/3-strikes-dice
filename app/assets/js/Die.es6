@@ -14,15 +14,30 @@ const types = {
 
 export default class Die {
 
+    /**
+     * Die
+     *
+     * @param type {String}
+     */
     constructor(type) {
         this._sides = types[type];
         this._type  = type;
     }
 
+    /**
+     * Returns the sides of the die
+     *
+     * @returns {Array}
+     */
     get sides() {
         return this._sides;
     }
 
+    /**
+     * Roll the die
+     *
+     * @returns {String}
+     */
     roll() {
         let sides = this._sides;
 

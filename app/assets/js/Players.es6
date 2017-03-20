@@ -2,10 +2,15 @@ import Player from './Player';
 
 export default class Players {
 
+    /**
+     * Players
+     *
+     * @param num {Number}
+     */
     constructor(num) {
         this._numPlayers = num;
         this._players = [];
-        this._whosTurn = 0;
+        this._whoseTurn = 0;
 
         Players._createPlayers();
     }
@@ -25,19 +30,20 @@ export default class Players {
      * @param name {String}
      */
     createPlayer(name) {
+        // Max players already created
         if (this._players.length == this._numPlayers) {
-            window.console.log('max players already created!');
-            window.console.log(this._players);
+            window.console.log('max players already created!', this._players);
             return;
         }
 
+        // Create new player and add to players array
         this._players.push(new Player(name));
 
+        // More players need to be created
         if (this._players.length < this._numPlayers) {
             $(document).trigger('showNewPlayerInput', {playerNum: this._players.length + 1});
         } else {
-            window.console.log('all players created');
-            window.console.log(this._players);
+            window.console.log('all players created', this._players);
             $(document).trigger('allPlayersCreated');
         }
     }
@@ -51,7 +57,12 @@ export default class Players {
         return this._players;
     }
 
-    get whosTurn() {
-        return this._players[this._whosTurn];
+    /**
+     * Returns the player whose current turn it is
+     *
+     * @returns {Player}
+     */
+    get whoseTurn() {
+        return this._players[this._whoseTurn];
     }
 }
