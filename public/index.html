@@ -19,22 +19,25 @@
 </head>
 <body>
     <!-- Begin page content -->
-    <div class="container">
-        <button id="new_game_btn">New Game</button>
+    <div class="container-fluid container-full">
+        <div class="center-content">
+            <button id="new_game_btn" class="btn">New Game</button>
 
-        <div id="choose_num_players" class="hidden">
-            <button class="choose-num-player">2</button>
-            <button class="choose-num-player">3</button>
-            <button class="choose-num-player">4</button>
-        </div>
+            <div id="choose_num_players" class="hidden">
+                <div>How many players would you like?</div>
+                <button class="choose-num-player btn">2</button>
+                <button class="choose-num-player btn">3</button>
+                <button class="choose-num-player btn">4</button>
+            </div>
 
-        <div id="player_name_div" class="hidden">
-            <input id="player_name_input" type="text" title=""/><button id="player_name_save">Save</button>
-        </div>
+            <div id="player_name_div" class="hidden">
+                <input id="player_name_input" type="text" title=""/><button id="player_name_save" class="btn">Save</button>
+            </div>
 
-        <div id="player_turn" class="hidden">
-            <div id="player_name"></div>
-            <button id="take_turn">Roll</button>
+            <div id="player_turn" class="hidden">
+                <div id="player_name"></div>
+                <button id="take_turn" class="btn">Roll</button>
+            </div>
         </div>
     </div>
 
