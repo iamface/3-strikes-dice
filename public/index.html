@@ -25,13 +25,20 @@
 
             <div id="choose_num_players" class="hidden">
                 <div>How many players would you like?</div>
-                <button class="choose-num-player btn">2</button>
-                <button class="choose-num-player btn">3</button>
-                <button class="choose-num-player btn">4</button>
+                <div id="num_players_btns">
+                    <button class="choose-num-player btn">2</button>
+                    <button class="choose-num-player btn">3</button>
+                    <button class="choose-num-player btn">4</button>
+                </div>
             </div>
 
             <div id="player_name_div" class="hidden">
-                <input id="player_name_input" type="text" title=""/><button id="player_name_save" class="btn">Save</button>
+                <div class="input-group name-input">
+                    <input id="player_name_input" type="text" title="" class="form-control"/>
+                    <span class="input-group-btn">
+                        <button id="player_name_save" class="btn" type="button" title="Save">Save</button>
+                    </span>
+                </div>
             </div>
 
             <div id="player_turn" class="hidden">

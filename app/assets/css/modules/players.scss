@@ -1,0 +1,13 @@
+.name-input{
+  max-width: 15em;
+}
+
+#num_players_btns {
+
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin: .3em;
+  }
+}
