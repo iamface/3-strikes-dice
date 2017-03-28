@@ -27,7 +27,12 @@ $(document).ready( ()=> {
     });
 
     // Player name saved
-    $('#player_name_save').click( ()=> {players.createPlayer($('#player_name_input').val())});
+    $('#player_name_save').click( ()=> {
+        let input = $('#player_name_input');
+        let name = (!input.val()) ? input.attr('placeholder') : input.val();
+        
+        players.createPlayer(name);
+    });
 
     // Player creation complete
     $(document).on('allPlayersCreated', ()=> {
