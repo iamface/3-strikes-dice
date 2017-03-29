@@ -75,14 +75,18 @@ function takeTurn() {
     let currentPlayer = players.whoseTurn;
     $(document).on('takeTurn', function() {
         $(document).off('takeTurn');
-        window.console.log(dice.remainingDice);
+        window.console.log(`${dice.remainingDice.length} dice remaining.`, dice.remainingDice);
 
-        if (dice.remainingDice.length > 0) {
+        if (dice.canPlay()) {
             let chosenDice = dice.pickDice();
             window.console.log(chosenDice);
 
             for (let i = 0; i < chosenDice.length; i++) {
-                window.console.log(chosenDice[i].roll());
+                let rollResult = chosenDice[i].roll();
+                window.console.log(rollResult);
+                $('#roll_result').append(
+                    `<span>${rollResult}</span>`
+                );
             }
         }
     });

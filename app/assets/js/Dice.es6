@@ -27,6 +27,10 @@ export default class Dice {
         this._remainingDice = this._dice;
     }
 
+    canPlay() {
+        return this._remainingDice.length > 0;
+    }
+
     pickDice() {
         window.console.log('choosing dice..');
         let remaining = this._remainingDice;
