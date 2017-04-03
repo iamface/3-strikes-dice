@@ -1,0 +1,14 @@
+#header {
+  background-color: #666;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 2em; // TODO remove after actual elements determine height
+}
+
+#header_scores {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}

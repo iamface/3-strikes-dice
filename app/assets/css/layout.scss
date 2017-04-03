@@ -1,6 +1,8 @@
 html,
 body {
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .container-full {
@@ -13,6 +15,14 @@ body {
   align-self: center;
 }
 
+.center-text {
+  text-align: center;
+}
+
 .hidden {
   display: none;
+}
+
+.margin-top-md {
+  margin-top: 1em;
 }

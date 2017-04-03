@@ -22,6 +22,7 @@ $(document).ready( ()=> {
 
     // Show player name input
     $(document).on('showNewPlayerInput', (e, player) => {
+        $('#player_name_enter').text(player.playerNum);
         $('#player_name_input').val('').attr('placeholder', 'Player '+ player.playerNum);
         $('#player_name_div').show();
     });
@@ -69,6 +70,20 @@ function createDice() {
 function startGame() {
     $('#player_name').text(players.whoseTurn.name);
     $('#player_turn').show();
+
+    showHeader();
+}
+
+function showHeader() {
+    $('#header_scores').empty();
+
+    $(players.players).each(function () {
+        $('#header_scores').append(
+            `<div>${this.name} : ${this.score}</div>`
+        );
+    });
+
+    $('#header').show();
 }
 
 function takeTurn() {

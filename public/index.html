@@ -20,9 +20,16 @@
 <body>
     <!-- Begin page content -->
     <div class="container-fluid container-full">
+        <!-- Score bar -->
+        <div class="hidden" id="header">
+            <div id="header_scores"></div>
+        </div>
+
         <div class="center-content">
+            <!-- New game -->
             <button id="new_game_btn" class="btn">New Game</button>
 
+            <!-- Select players -->
             <div id="choose_num_players" class="hidden">
                 <div>How many players would you like?</div>
                 <div id="num_players_btns">
@@ -32,8 +39,10 @@
                 </div>
             </div>
 
-            <div id="player_name_div" class="hidden">
-                <div class="input-group name-input">
+            <!-- Enter player names -->
+            <div id="player_name_div" class="hidden center-text">
+                <span>Please enter a name for Player <span id="player_name_enter"></span></span>
+                <div class="input-group name-input margin-top-md">
                     <input id="player_name_input" type="text" title="" class="form-control"/>
                     <span class="input-group-btn">
                         <button id="player_name_save" class="btn" type="button" title="Save">Save</button>
@@ -41,6 +50,7 @@
                 </div>
             </div>
 
+            <!-- Player's turn -->
             <div id="player_turn" class="hidden">
                 <div id="roll_result"></div>
                 <div id="player_name"></div>
