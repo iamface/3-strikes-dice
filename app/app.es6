@@ -56,6 +56,9 @@ $(document).ready( ()=> {
 let players;
 let dice;
 
+/**
+ * Create a new game
+ */
 function createNewGame() {
     $('#new_game_btn').hide();
 
@@ -63,10 +66,16 @@ function createNewGame() {
     window.console.log('new game initialized..');
 }
 
+/**
+ * Create the dice
+ */
 function createDice() {
     dice = new Dice();
 }
 
+/**
+ * Start the game
+ */
 function startGame() {
     $('#header').show();
 
@@ -76,6 +85,9 @@ function startGame() {
     showHeader();
 }
 
+/**
+ * Show score header
+ */
 function showHeader() {
     $('#header_scores').empty();
 
@@ -88,6 +100,9 @@ function showHeader() {
     $('#header').show();
 }
 
+/**
+ * Take a turn
+ */
 function takeTurn() {
     let currentPlayer = players.whoseTurn;
     $(document).on('takeTurn', function() {
