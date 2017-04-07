@@ -68,6 +68,8 @@ function createDice() {
 }
 
 function startGame() {
+    $('#header').show();
+
     $('#player_name').text(players.whoseTurn.name);
     $('#player_turn').show();
 
