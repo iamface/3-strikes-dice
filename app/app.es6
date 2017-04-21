@@ -117,7 +117,7 @@ function takeTurn() {
                 let rollResult = chosenDice[i].roll();
                 window.console.log(rollResult);
                 $('#roll_result').append(
-                    `<span>${rollResult}</span>`
+                    `<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><use xlink:href="./images/die.svg#die_${rollResult}"></use></svg>`
                 );
             }
         }
