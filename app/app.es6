@@ -115,7 +115,8 @@ function takeTurn() {
 
             for (let i = 0; i < chosenDice.length; i++) {
                 let rollResult = chosenDice[i].roll();
-                window.console.log(rollResult);
+                currentPlayer.currentTurn = rollResult;
+
                 $('#roll_result').append(
                     `<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><use xlink:href="./images/die.svg#die_${rollResult}"></use></svg>`
                 );
