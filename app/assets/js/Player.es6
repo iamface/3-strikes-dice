@@ -6,8 +6,9 @@ export default class Player {
      * @param name {String}
      */
     constructor(name) {
-        this._name  = name;
-        this._score = 0;
+        this._name        = name;
+        this._score       = 0;
+        this._currentTurn = {};
     }
 
     /**
@@ -42,5 +43,23 @@ export default class Player {
      */
     set score(add) {
         this._score += add;
+    }
+
+    /**
+     * Returns the player's current turn results
+     *
+     * @returns {Object}
+     */
+    get currentTurn() {
+        return this._currentTurn;
+    }
+
+    /**
+     * Records the player's current turn results
+     *
+     * @param type {String}
+     */
+    set currentTurn(type) {
+        this._currentTurn[type] = (this._currentTurn[type]) ? this._currentTurn[type] + 1 : 1;
     }
 }
