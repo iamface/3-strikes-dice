@@ -3,12 +3,12 @@ export default class Player {
     /**
      * Player
      *
-     * @param name {String}
+     * @param name {String} Display name of the player
      */
     constructor(name) {
-        this._name        = name;
-        this._score       = 0;
-        this._currentTurn = {};
+        this._name  = name;
+        this._score = 0;
+        this._currentTurn = [];
     }
 
     /**
@@ -16,6 +16,13 @@ export default class Player {
      */
     takeTurn() {
         $(document).trigger('takeTurn');
+    }
+
+    /**
+     * Ends the player's turn
+     */
+    endTurn() {
+        this._currentTurn = [];
     }
 
     /**
@@ -39,27 +46,27 @@ export default class Player {
     /**
      * Adds to the player's score
      *
-     * @param add {Number}
+     * @param num {Number} Amount to add to the player's current score
      */
-    set score(add) {
-        this._score += add;
+    set score(num) {
+        this._score += num;
     }
 
     /**
-     * Returns the player's current turn results
+     * Returns the rolled dice from the current turn
      *
-     * @returns {Object}
+     * @returns {Array}
      */
     get currentTurn() {
         return this._currentTurn;
     }
 
     /**
-     * Records the player's current turn results
+     * Adds the latest roll to the current turn
      *
-     * @param type {String}
+     * @param roll {Array} The result of the latest roll
      */
-    set currentTurn(type) {
-        this._currentTurn[type] = (this._currentTurn[type]) ? this._currentTurn[type] + 1 : 1;
+    set currentTurn(roll) {
+        this._currentTurn = this._currentTurn.concat(roll);
     }
 }

@@ -110,22 +110,63 @@ function takeTurn() {
         window.console.log(`${dice.remainingDice.length} dice remaining.`, dice.remainingDice);
 
         if (dice.canPlay()) {
-            let chosenDice = dice.pickDice();
+            // Hide roll button
+            $('#take_turn').hide();
+
+            // Grab 3 dice to roll
+            let chosenDice = dice.pickDice(3);
             window.console.log(chosenDice);
 
+            let rollResult = [];
+            // Roll and show the result
             for (let i = 0; i < chosenDice.length; i++) {
-                let rollResult = chosenDice[i].roll();
-                currentPlayer.currentTurn = rollResult;
+                let dieResult = chosenDice[i].roll();
+                window.console.log(dieResult);
 
+                rollResult.push(dieResult);
+
+                // Show result
                 $('#roll_result').append(
-                    `<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><use xlink:href="./images/die.svg#die_${rollResult}"></use></svg>`
+                    `<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><use xlink:href="./images/die.svg#die_${dieResult}"></use></svg>`
                 );
             }
+
+            currentPlayer.currentTurn = rollResult;
+            evaluateTurn(currentPlayer);
         }
     });
     window.console.log(currentPlayer);
 
     currentPlayer.takeTurn();
+}
+
+function evaluateTurn(currentPlayer) {
+    let dice = currentPlayer.currentTurn;
+
+    let strikes = 0;
+    let points  = 0;
+    let rerolls = 0;
+    for (let i = 0; i < dice.length; i++) {
+        switch (dice[i]) {
+            case 'X':
+                strikes++;
+                break;
+            case 'O':
+                points++;
+                break;
+            case 'T':
+                rerolls++;
+                break;
+        }
+    }
+
+    if (strikes >= 3) {
+        window.console.log('player turn over..');
+        currentPlayer.endTurn();
+        return;
+    }
+
+    $('#take_turn').show();
 }
 
 /*************************************/
