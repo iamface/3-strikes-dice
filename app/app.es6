@@ -127,7 +127,7 @@ function takeTurn() {
 
                 // Show result
                 $('#roll_result').append(
-                    `<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><use xlink:href="./images/die.svg#die_${dieResult}"></use></svg>`
+                    `<div class="die-result"><svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><use xlink:href="./images/die.svg#die_${dieResult}"></use></svg></div>`
                 );
             }
 
