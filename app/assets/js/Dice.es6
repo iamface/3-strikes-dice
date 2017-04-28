@@ -27,16 +27,28 @@ export default class Dice {
         this._remainingDice = this._dice;
     }
 
+    /**
+     * Returns whether or not there is remaining dice to grab
+     *
+     * @returns {boolean}
+     */
     canPlay() {
         return this._remainingDice.length > 0;
     }
 
-    pickDice() {
+    /**
+     * Grab dice from the pool
+     *
+     * @param num {int} The number of dice grabbed to roll
+     *
+     * @returns {Array}
+     */
+    pickDice(num) {
         window.console.log('choosing dice..');
         let remaining = this._remainingDice;
         let chosenDice = [];
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < num; i++) {
             let die = Math.floor(Math.random() * remaining.length);
             chosenDice.push(remaining[die]);
 
