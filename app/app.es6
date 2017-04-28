@@ -49,6 +49,11 @@ $(document).ready( ()=> {
 
     // Event from Player
     $('#take_turn').click(takeTurn);
+
+    $('#roll_again').click(rollAgain);
+    $('#end_turn').click(function() {
+        endTurn(true);
+    });
 });
 
 /*************************************/
@@ -140,6 +145,31 @@ function takeTurn() {
     currentPlayer.takeTurn();
 }
 
+function endTurn(recordScore) {
+    let currentPlayer = players.whoseTurn;
+    if (recordScore) {
+        let dice = currentPlayer.currentTurn;
+
+        let score = 0;
+        for (let i = 0; i < dice.length; i++) {
+            if (dice[i] === 'O') {
+                score++;
+            }
+        }
+
+        currentPlayer.score = score;
+
+        window.console.log(currentPlayer);
+    }
+
+    window.console.log('player turn over..');
+    currentPlayer.endTurn();
+}
+
+function rollAgain() {
+    window.console.log('roll again..');
+}
+
 function evaluateTurn(currentPlayer) {
     let dice = currentPlayer.currentTurn;
 
@@ -161,12 +191,16 @@ function evaluateTurn(currentPlayer) {
     }
 
     if (strikes >= 3) {
-        window.console.log('player turn over..');
-        currentPlayer.endTurn();
+        endTurn(false);
         return;
     }
 
-    $('#take_turn').show();
+    if (rerolls === 0) {
+        endTurn(true);
+        return;
+    }
+
+    $('#roll_again, #end_turn').show();
 }
 
 /*************************************/
