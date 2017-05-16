@@ -85,7 +85,7 @@ function startGame() {
     $('#header').show();
 
     $('#player_name').text(players.whoseTurn.name);
-    $('#player_turn').show();
+    $('#player_turn, #take_turn').show();
 
     showHeader();
 }
@@ -116,7 +116,7 @@ function takeTurn() {
 
         if (dice.canPlay()) {
             // Hide roll button
-            $('#take_turn').hide();
+            $('#take_turn, #roll_again, #end_turn').hide();
 
             // Grab 3 dice to roll
             let chosenDice = dice.pickDice(3);
@@ -168,6 +168,7 @@ function endTurn(recordScore) {
 
 function rollAgain() {
     window.console.log('roll again..');
+    takeTurn();
 }
 
 function evaluateTurn(currentPlayer) {
