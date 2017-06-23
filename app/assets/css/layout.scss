@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   background: radial-gradient(ellipse, $backgroundLightBlue, $backgroundDarkBlue);
+  color: white;
 }
 
 .container-full {
@@ -28,4 +29,42 @@ body {
 
 .margin-top-md {
   margin-top: 1em;
+}
+
+.input-left {
+  border: 1px solid white;
+  box-shadow:inset 1px 1px 5px 0px rgba(0,0,0,.2);
+}
+
+.btn {
+  $bottom: $buttonColor;
+  $top: $bottom + 20;
+  $buttonMargin: .3em;
+  $shadowMargin: .25em;
+  $shadowMarginNegative: -.25em;
+  $shadowMarginSide: .05em;
+
+  background: linear-gradient(to bottom, $top 50%, $bottom 50%);
+  margin: 0 $buttonMargin;
+
+  &.btn-hov {
+    box-shadow: 0 $shadowMargin $shadowMargin 0 $backgroundDarkBlue;
+
+    &:hover {
+      background: linear-gradient(to bottom, $top 50%, ($bottom + 10) 50%);
+      margin: $shadowMargin $buttonMargin $shadowMarginNegative $buttonMargin;
+      box-shadow: 0 $shadowMarginSide $shadowMargin 0 $backgroundDarkBlue;
+    }
+
+    &:active {
+      background: linear-gradient(to bottom, $top 50%, ($bottom - 10) 50%);
+      margin: $shadowMargin $buttonMargin $shadowMarginNegative $buttonMargin;
+      box-shadow: 0 $shadowMarginSide $shadowMargin 0 $backgroundDarkBlue;
+    }
+  }
+
+  &:active {
+    background: linear-gradient(to bottom, $top 50%, $bottom 50%);
+    margin: 0 $buttonMargin;
+  }
 }

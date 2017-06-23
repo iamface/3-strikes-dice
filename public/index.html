@@ -23,15 +23,15 @@
 
         <div class="center-content">
             <!-- New game -->
-            <button id="new_game_btn" class="btn">New Game</button>
+            <button id="new_game_btn" class="btn btn-hov">New Game</button>
 
             <!-- Select players -->
             <div id="choose_num_players" class="hidden">
-                <div>How many players would you like?</div>
-                <div id="num_players_btns">
-                    <button class="choose-num-player btn">2</button>
-                    <button class="choose-num-player btn">3</button>
-                    <button class="choose-num-player btn">4</button>
+                <div id="num_players_question">How many players would you like?</div>
+                <div id="num_players_btns" class="margin-top-md">
+                    <button class="choose-num-player btn btn-hov">2</button>
+                    <button class="choose-num-player btn btn-hov">3</button>
+                    <button class="choose-num-player btn btn-hov">4</button>
                 </div>
             </div>
 
@@ -39,9 +39,9 @@
             <div id="player_name_div" class="hidden center-text">
                 <span>Please enter a name for Player <span id="player_name_enter"></span></span>
                 <div class="input-group name-input margin-top-md">
-                    <input id="player_name_input" type="text" title="" class="form-control"/>
+                    <input id="player_name_input" type="text" title="" class="form-control input-left"/>
                     <span class="input-group-btn">
-                        <button id="player_name_save" class="btn" type="button" title="Save">Save</button>
+                        <button id="player_name_save" class="btn btn-std" type="button" title="Save">Save</button>
                     </span>
                 </div>
             </div>
@@ -50,9 +50,9 @@
             <div id="player_turn" class="hidden">
                 <div id="roll_result"></div>
                 <div id="player_name"></div>
-                <button id="take_turn" class="btn hidden">Roll</button>
-                <button id="roll_again" class="btn hidden">Roll Again</button>
-                <button id="end_turn" class="btn hidden">End Turn</button>
+                <button id="take_turn" class="btn btn-hov hidden">Roll</button>
+                <button id="roll_again" class="btn btn-hov hidden">Roll Again</button>
+                <button id="end_turn" class="btn btn-hov hidden">End Turn</button>
             </div>
         </div>
     </div>
