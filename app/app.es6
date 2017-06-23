@@ -10,6 +10,11 @@ import Dice from './assets/js/Dice';
 /* Events */
 
 $(document).ready( ()=> {
+    // Blur focused button on mouse up
+    $(document).mouseup(function(){
+        $('.btn').blur();
+    });
+
     // New Game clicked
     $('#new_game_btn').click(createNewGame);
 

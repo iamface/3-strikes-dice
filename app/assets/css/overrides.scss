@@ -1,4 +1,31 @@
-.btn:focus {
-  outline: none !important;
-  box-shadow: none !important;
+@import "variables";
+
+.btn {
+  $bottom: $buttonColor;
+  $top: $bottom + 20;
+  $buttonMargin: .3em;
+  $shadowMargin: .25em;
+  $shadowMarginNegative: -.25em;
+  $shadowMarginSide: .05em;
+
+  background: linear-gradient(to bottom, $top 50%, $bottom 50%);
+  box-shadow: 0 $shadowMargin $shadowMargin 0 $backgroundDarkBlue;
+  margin: 0 $buttonMargin;
+
+  &:hover {
+    background: linear-gradient(to bottom, $top 50%, ($bottom + 10) 50%);
+    margin: $shadowMargin $buttonMargin $shadowMarginNegative $buttonMargin;
+    box-shadow: 0 $shadowMarginSide $shadowMargin 0 $backgroundDarkBlue;
+  }
+
+  &:active {
+    background: linear-gradient(to bottom, $top 50%, ($bottom - 10) 50%);
+    margin: $shadowMargin $buttonMargin $shadowMarginNegative $buttonMargin;
+    box-shadow: 0 $shadowMarginSide $shadowMargin 0 $backgroundDarkBlue;
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }

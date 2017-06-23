@@ -1,8 +1,11 @@
+@import "variables";
+
 html,
 body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  background: radial-gradient(ellipse, $backgroundLightBlue, $backgroundDarkBlue);
 }
 
 .container-full {
