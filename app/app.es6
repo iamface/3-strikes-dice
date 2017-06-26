@@ -150,6 +150,11 @@ function takeTurn() {
     currentPlayer.takeTurn();
 }
 
+/**
+ * Ends a turn
+ *
+ * @param recordScore {Boolean}
+ */
 function endTurn(recordScore) {
     let currentPlayer = players.whoseTurn;
     if (recordScore) {
@@ -171,11 +176,19 @@ function endTurn(recordScore) {
     currentPlayer.endTurn();
 }
 
+/**
+ * Roll again
+ */
 function rollAgain() {
     window.console.log('roll again..');
     takeTurn();
 }
 
+/**
+ * Evaluate the last roll
+ *
+ * @param currentPlayer {Player}
+ */
 function evaluateTurn(currentPlayer) {
     let dice = currentPlayer.currentTurn;
 

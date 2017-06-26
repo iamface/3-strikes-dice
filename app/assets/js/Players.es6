@@ -31,7 +31,7 @@ export default class Players {
      */
     createPlayer(name) {
         // Max players already created
-        if (this._players.length == this._numPlayers) {
+        if (this._players.length === this._numPlayers) {
             window.console.log('max players already created!', this._players);
             return;
         }
