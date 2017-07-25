@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 // Include CSS to be compiled
-require('./assets/css/app.scss');
+import './assets/css/app.scss';
 
 import Players from './assets/js/Players';
 import Dice from './assets/js/Dice';
@@ -22,7 +22,7 @@ $(document).ready( ()=> {
     $('.choose-num-player').click( e => {
         $('#choose_num_players').hide();
 
-        players = new Players($(e.target).text());
+        players = new Players(Number($(e.target).text()));
     });
 
     // Show player name input
