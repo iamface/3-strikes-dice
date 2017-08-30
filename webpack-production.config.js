@@ -10,6 +10,9 @@ const devConfig = require('./webpack.config.js');
 // .env.development.production.example
 const Dotenv = require('dotenv-webpack');
 
+// Webpack
+const webpack = require('webpack');
+
 // Strip 'console.log' from files
 const stripLoader = {
     test: [/\.js$/],
@@ -27,8 +30,18 @@ devConfig.module.rules.push(stripLoader);
 const env = new Dotenv({
     path: '.env.production'
 });
+
+// inject ES5 modules as global vars
+const jquery = new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery',
+    Tether: 'tether'
+});
+
 devConfig.plugins.pop();
 devConfig.plugins.push(env);
+devConfig.plugins.push(jquery);
 
 // Include Babili plugin
 devConfig.plugins.push(babili);
